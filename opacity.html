@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Leaflet.OpacityControls Demo</title>
+    
+    <link rel="stylesheet" href="css/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="libs/leaflet.ie.css" /><![endif]-->
+    <script src="js/leaflet.js"></script>
+    
+    <link rel="stylesheet" href="css/Control.Opacity.css" />
+    <script src="js/Control.Opacity.js"></script>
+	
+	<!-- ESRI-leaflet plugin-->
+	<script type="text/javascript" src="js/esri-leaflet.js"></script>
+        
+    
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="lib/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+    <link rel="stylesheet" href="lib/jquery/jquery-ui-1.10.3.custom.min.css" />
+    
+    
+    <style type="text/css">
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+        
+        #map {
+            width: 99%;
+            height: 100%; 
+        }
+       
+     </style>
+</head>
+<body>
+	<div id="map"></div>
+    <br>
+    
+	<script type="text/JavaScript">
+    //Create the map
+            
+       var historic_seattle = new L.esri.Layers.DynamicMapLayer('http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer');	
+        
+       
+        var map = new L.map('map', {
+            center: new L.LatLng(38.2,-121.8), 
+            zoom: 9,
+            layers: [historic_seattle],
+            zoomControl: true
+        });
+        
+        
+        
+    //Create the opacity controls
+        var opacitySlider = new L.Control.opacitySlider();
+        map.addControl(opacitySlider);
+    
+    //Specify the layer for which you want to modify the opacity. Note that the setOpacityLayer() method applies to all the controls.
+    //You only need to call it once. 
+        opacitySlider.setOpacityLayer(historic_seattle);
+        
+    //Set initial opacity to 0.5 (Optional)
+        historic_seattle.setOpacity(0.5);
+	</script>
+</body>
+</html>
