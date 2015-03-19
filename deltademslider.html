@@ -17,7 +17,8 @@
 <script type="text/javascript" src="js/esri-leaflet.js"></script>
 
 <!-- Full screen control-->
-
+ <link rel="stylesheet" href="Control.FullScreen.css" />
+ <script src="Control.FullScreen.js"></script>
 
 </head>
 <img src="https://watershed.ucdavis.edu/files/cwsheader_0.png">
@@ -81,8 +82,18 @@
 		// You may want to turn attributionControl off so that the Leaflet attribution doesn't slide with the slider. Place all attribution on the after map.
 		// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
 		var center = [38.2,-121.8], zoom = 9, 
-		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
-		after = L.map('after', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom);
+		before = L.map('before', {
+  fullscreenControl: true,
+  fullscreenControlOptions: {
+    position: 'topleft'
+  }
+}, {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
+		after = L.map('after', {
+  fullscreenControl: true,
+  fullscreenControlOptions: {
+    position: 'topleft'
+  }
+}, {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom);
 
 		// add your Mapbox tile layer
 		new L.esri.Layers.DynamicMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer", {opacity:0.8}).addTo(before); 
@@ -156,7 +167,17 @@
 				
 			});
 	
-	
+		//FullScreen
+		// create a fullscreen button and add it to the map
+
+			// events are fired when entering or exiting fullscreen.
+			map.on('enterFullscreen', function(){
+			  console.log('entered fullscreen');
+			});
+
+			map.on('exitFullscreen', function(){
+			  console.log('exited fullscreen');
+			});
   
 </script>
 
