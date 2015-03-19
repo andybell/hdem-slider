@@ -44,6 +44,8 @@
   #basemaps {
     margin-bottom: 5px;
   }
+  #map-container{margin-left:auto;
+  margin-right:auto}
 
 </style>
 
@@ -52,8 +54,8 @@
 <!-- Create a map container div and divs for your two maps -->
 <div id="map-container">
 	<!-- Make sure to give the map divs height and width -->
-	<div id="before" style="height:90vh;width:80vw;"></div>
-	<div id="after" style="height:90vh;width:80vw;"></div>
+	<div id="before" style="height:600px;width:900px;"></div>
+	<div id="after" style="height:600px;width:900px;"></div>
 
 
 
@@ -152,7 +154,7 @@
 				
 				
 		// Call the Before-After plugin, passing through the variables that you used to setup the maps, and (optional) any options you'd like
-		$('#map-container').beforeAfter(before,after);
+		$('#map-container').beforeAfter(before,after, {showFullLinks: false});
 				
 			});
 	
