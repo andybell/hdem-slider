@@ -88,12 +88,7 @@
     position: 'topleft'
   }
 }, {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
-		after = L.map('after', {
-  fullscreenControl: true,
-  fullscreenControlOptions: {
-    position: 'topleft'
-  }
-}, {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom);
+		after = L.map('after', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom);
 
 		// add your Mapbox tile layer
 		new L.esri.Layers.DynamicMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer", {opacity:0.8}).addTo(before); 
