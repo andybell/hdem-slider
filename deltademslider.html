@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<title>Historical Delta Slider</title>
+<title>CWS Experiments: Historical Delta Slider</title>
 <head>
 <!-- Setup Before-After Plugin dependencies -->
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
@@ -16,9 +16,21 @@
 <!-- ESRI-leaflet plugin-->
 <script type="text/javascript" src="js/esri-leaflet.js"></script>
 
-</head>
+<!-- Full screen control-->
 
+
+</head>
+<img src="https://watershed.ucdavis.edu/files/cwsheader_0.png">
 <body>
+
+<h1>Historical vs Modern Delta</h1>
+		<h2>Elevation Model Slider Map</h2>
+		
+		<p>The <a href="https://watershed.ucdavis.edu">UC Davis Center for Watershed Sciences</a> created an interactive slider map to showcase the work on the historical elevation model of the Sacramento - San Joaquin River Delta. This interactive map compares the historical elevation model (circa the mid-1800s) with the present day digital elevation model for the Delta.  For more information about this project, please see <a href = "https://watershed.ucdavis.edu/project/historical-delta-elevation-model"> Historical Delta Elevation Model</a>.</p>
+		
+		<p>The historical elevation model was built in collaboration with the <a href = "http://www2.sfei.org/"> San Francisco Estuary Institute</a> and <a href="http://www.rmanet.com/"> River Management Associates</a>. The model was constructed using historical data from early river surveys to characterize the hydrodynamics of the Delta prior to human modifications.The modern digital elevation model is from the <a href="http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/modelingdata/DEM.cfm">DWR Bay-Delta 10m DEM</a>.
+		
+		<p><b>Use the handle in the middle to switch between the historical elevation model (on the left) and the modern elevation model (on the right). The background basemap can be switched using the dialog box. </b> </p>
 
 <style>
   #basemaps-wrapper {
@@ -32,15 +44,17 @@
   #basemaps {
     margin-bottom: 5px;
   }
+
 </style>
+
 
 
 <!-- Create a map container div and divs for your two maps -->
 <div id="map-container">
 	<!-- Make sure to give the map divs height and width -->
-	<div id="before" style="height:90vh;width:99vw;"></div>
-	<div id="after" style="height:90vh;width:99vw;"></div>
-</div>
+	<div id="before" style="height:90vh;width:80vw;"></div>
+	<div id="after" style="height:90vh;width:80vw;"></div>
+
 
 
 <div id="basemaps-wrapper" class="leaflet-bar">
@@ -53,10 +67,13 @@
     <option value="DarkGray">Dark Gray<options>
     <option value="Imagery">Imagery<options>
     <option value="ShadedRelief">Shaded Relief<options>
-  </select>
+  </select></div>
+</div>
+  
 </div>
 
-
+<p></p>
+<p>Built using Leaflet, JQuery, and ESRI MapServer by Andy Bell</p>
 
 <script type="text/javascript">
 	$(function() {
@@ -65,7 +82,7 @@
 		// You may also want to turn off inertia, which in some cases can cause the maps to go out of sync
 		var center = [38.2,-121.8], zoom = 9, 
 		before = L.map('before', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom),
-		after = L.map('after', {inertia: false, minZoom: 8}).setView(center, zoom);
+		after = L.map('after', {attributionControl: false, inertia: false, minZoom: 8}).setView(center, zoom);
 
 		// add your Mapbox tile layer
 		new L.esri.Layers.DynamicMapLayer("http://atlas.cws.ucdavis.edu/arcgis/rest/services/HistoricalDelta/HistoricalDelta_v6r3/MapServer", {opacity:0.8}).addTo(before); 
@@ -142,6 +159,8 @@
 	
   
 </script>
+
+
 
 </body>
 </html>
