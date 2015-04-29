@@ -28,7 +28,7 @@
 
 		<p>The historical elevation model was built in collaboration with the <a href = "http://www2.sfei.org/"> San Francisco Estuary Institute</a> and <a href="http://www.rmanet.com/"> Resource Management Associates</a>. The model was constructed using historical data from early river surveys to characterize the hydrodynamics of the Delta prior to human modifications.The modern digital elevation model is from the <a href="http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/modelingdata/DEM.cfm">DWR Bay-Delta 10m DEM</a>.
 
-		<p><b>Use the handle in the middle to switch between the historical elevation model (on the left) and the modern elevation model (on the right). The background basemap can be switched using the dialog box. </b> </p>
+		<p><b>Use the handle in the middle to switch between the historical elevation model (on the left) and the modern elevation model (on the right). The background basemap can be switched using the dialog box. The transparency of the DEM layers can be adjusted using the input slider in the lower left. For best viewing, please use Chrome or Firefox.</b></p>
 
 <style>
   #basemaps-wrapper {
@@ -47,16 +47,15 @@
 	#slide{
 			-webkit-appearance: none;
 			position: absolute;
+			width: 200px;
+			bottom: 10px;
+			left: 10px;
 	    z-index: 10;
-			transform: rotate(90deg);
-			border-radius: 8px;
+			border-radius: 15px;
 			background: white;
 			height: 7px;
 			border: 1px solid black;
-			top: 150px;
-			left: -38px;
 	  }}
-
 </style>
 
 
@@ -83,7 +82,7 @@
 	</div>
 
 	<div>
-		<input id="slide" type="range" min="0" max="1" step="0.1" value="0.5" onchange="updateOpacity(this.value)" orient="vertical">
+		<input id="slide" type="range" min="0" max="1" step="0.05" value="0.75" onchange="updateOpacity(this.value)">
 	</div>
 
 
