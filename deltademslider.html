@@ -43,7 +43,8 @@
     margin-bottom: 5px;
   }
   #map-container{margin-left:auto;
-  margin-right:auto}
+  margin-right:auto;
+	border:1px solid black;}
 	#slide{
 			-webkit-appearance: none;
 			position: absolute;
@@ -55,7 +56,14 @@
 			background: white;
 			height: 7px;
 			border: 1px solid black;
-	  }}
+	  }
+	#legend {
+		margin-left:auto;
+		margin-right: auto;
+		text-align: center;
+		padding:10px;
+
+	}
 </style>
 
 
@@ -86,8 +94,8 @@
 	</div>
 </div>
 
-<div>
-<img src="legend.png" style="width:500px;padding:5px;">
+<div id="legend">
+	<img src="legend.png" style="width:600px;border:1px solid black;">
 </div>
 
 <p></p>
