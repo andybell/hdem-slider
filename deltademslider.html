@@ -16,10 +16,14 @@
 
 <!-- ESRI-leaflet plugin-->
 <script type="text/javascript" src="js/esri-leaflet.js"></script>
+
+<!-- Font awesome icons -->
+<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+
 </head>
 
-<img src="https://watershed.ucdavis.edu/files/cwsheader_0.png">
 <body>
+<img src="https://watershed.ucdavis.edu/files/cwsheader_0.png">
 
 <h1>Historical vs Modern Delta</h1>
 		<h2>Elevation Model Slider Map</h2>
@@ -28,13 +32,19 @@
 
 		<p>The historical elevation model was built in collaboration with the <a href = "http://www2.sfei.org/"> San Francisco Estuary Institute</a> and <a href="http://www.rmanet.com/"> Resource Management Associates</a>. The model was constructed using historical data from early river surveys to characterize the hydrodynamics of the Delta prior to human modifications.The modern digital elevation model is from the <a href="http://baydeltaoffice.water.ca.gov/modeling/deltamodeling/modelingdata/DEM.cfm">DWR Bay-Delta 10m DEM</a>.
 
-		<p><b>Use the handle in the middle to switch between the historical elevation model (on the left) and the modern elevation model (on the right). The background basemap can be switched using the dialog box. The transparency of the DEM layers can be adjusted using the input slider in the lower left. For best viewing, please use Chrome or Firefox.</b></p>
+		<p><b>Use the handle in the middle to switch between the historical elevation model (on the left) and the modern elevation model (on the right). The background basemap can be switched using the dialog box. The transparency of the DEM layers can be adjusted using the input slider in the lower left. Click the expand button to view in full screen. For best viewing, please use Chrome or Firefox.</b></p>
+
 
 <style>
+	body {
+		padding: 0;
+		margin-left: 75px;
+		margin-right: 75px;
+	}
   #basemaps-wrapper {
     position: absolute;
     top: 15px;
-    right: 15px;
+    left: 75px;
     z-index: 10;
     background: white;
     padding: 10px;
@@ -62,7 +72,12 @@
 		margin-right: auto;
 		text-align: center;
 		padding:10px;
-
+	}
+	#full {
+		position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
 	}
 </style>
 
@@ -87,6 +102,10 @@
 	    <option value="Imagery">Imagery<options>
 	    <option value="ShadedRelief">Shaded Relief<options>
   	</select>
+	</div>
+
+	<div id="full">
+		<a href="slider-fullscreen.html"><i class="fa fa-expand fa-3x" style="color:grey"></i></a>
 	</div>
 
 	<div>
